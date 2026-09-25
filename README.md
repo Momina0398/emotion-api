@@ -1,31 +1,44 @@
 # Multilingual Emotion Detection API
 
-A FastAPI service that serves a multi-label emotion classifier (anger, disgust, fear, joy, sadness, surprise)
-fine-tuned during my MSc dissertation (CAST, BRIGHTER / SemEval-2025 Task 11, 9 languages).
+A FastAPI service built on my MSc dissertation, *Multilingual Models Have Feelings Too?*
+(BRIGHTER / SemEval-2025 Task 11, 9 languages). Six emotions, multi-label: anger, disgust, fear, joy, sadness, surprise.
+
+## Endpoints
+| Endpoint | What it does |
+|---|---|
+| `GET /health` | Service status, loaded model and vector index |
+| `POST /predict` | Emotion scores from the MAD-X model (XLM-RoBERTa-large + language and task adapters) |
+| `POST /similar` | Embeds the text, searches a FAISS index of labelled BRIGHTER examples, returns ranked neighbours and a retrieval-based emotion vote |
+
+## Retrieval
+- Embeddings: `paraphrase-multilingual-MiniLM-L12-v2` (normalised, cosine similarity)
+- Vector index: FAISS `IndexFlatIP`, up to 3,000 training examples per language
+- Evaluation on the dev split: see [`examples/retrieval_eval.json`](examples/retrieval_eval.json)
+  (kNN macro-F1 and label precision@10 per language). Not comparable to the dissertation scores.
+- The index is not committed; rebuild it with the part 2 notebook.
 
 ## Run locally
 ```bash
 pip install -r requirements.txt
-MODEL_BACKEND=dummy uvicorn app.main:app --reload
-# open http://localhost:8000/docs
+MODEL_BACKEND=dummy uvicorn app.main:app --reload     # open http://localhost:8000/docs
 ```
+Real model: `MODEL_BACKEND=madx ADAPTER_PATH=/path/to/rus_track_a_C1`.
+Retrieval: `RETRIEVER_BACKEND=st INDEX_DIR=index`.
 
-## Run with Docker
+## Docker
 ```bash
 docker build -t emotion-api .
 docker run -p 8000:8000 emotion-api
 ```
 
-## Tests
+## Tests and CI
 ```bash
-pip install -r requirements-dev.txt
-pytest -q
+pip install -r requirements-dev.txt && pytest -q
 ```
-CI (GitHub Actions) runs the tests and builds and smoke-tests the Docker image on every push.
+GitHub Actions runs 14 tests (with mock model and mock embedder backends), then builds and smoke-tests the Docker image on every push.
 
 ## Roadmap
-- [x] madx backend loads the real CAST Phase 3 adapters (xlm-roberta-large + lang + task + head)
-- [ ] Publish adapter weights publicly and link them here
-- [ ] Record latency (p50/p95) for CPU vs GPU and batch sizes
-- [ ] Optional: RAG endpoint that retrieves labelled examples from a vector database (FAISS or Chroma) and uses them as few-shot context
-- [ ] Optional: deploy to a free cloud tier (e.g. Hugging Face Spaces or Google Cloud Run)
+- [x] MAD-X model backend
+- [x] Embeddings, FAISS vector search and retrieval evaluation
+- [ ] Use retrieved examples as few-shot context for an LLM (full RAG)
+- [ ] Deploy to a free cloud tier

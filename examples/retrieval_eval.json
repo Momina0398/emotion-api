@@ -1,0 +1,123 @@
+{
+  "method": "kNN vote over FAISS index, k=10, same-language, threshold 0.5",
+  "embedder": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "train_cap_per_lang": 3000,
+  "results": {
+    "eng": {
+      "n_dev": 230,
+      "macro_f1": 0.5699,
+      "label_precision_at_10": 0.7284,
+      "emotions": [
+        "anger",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "hin": {
+      "n_dev": 200,
+      "macro_f1": 0.518,
+      "label_precision_at_10": 0.4812,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "rus": {
+      "n_dev": 398,
+      "macro_f1": 0.6011,
+      "label_precision_at_10": 0.5892,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "hau": {
+      "n_dev": 712,
+      "macro_f1": 0.2944,
+      "label_precision_at_10": 0.3977,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "kin": {
+      "n_dev": 814,
+      "macro_f1": 0.2108,
+      "label_precision_at_10": 0.3114,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "sun": {
+      "n_dev": 398,
+      "macro_f1": 0.1983,
+      "label_precision_at_10": 0.6763,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "yor": {
+      "n_dev": 994,
+      "macro_f1": 0.0782,
+      "label_precision_at_10": 0.2421,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "vmw": {
+      "n_dev": 516,
+      "macro_f1": 0.0,
+      "label_precision_at_10": 0.1353,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    },
+    "pcm": {
+      "n_dev": 1240,
+      "macro_f1": 0.2745,
+      "label_precision_at_10": 0.5112,
+      "emotions": [
+        "anger",
+        "disgust",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise"
+      ]
+    }
+  }
+}
