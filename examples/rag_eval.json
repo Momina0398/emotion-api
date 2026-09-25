@@ -1,0 +1,135 @@
+{
+  "llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "embedder": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "k": 5,
+  "n_per_language": 100,
+  "seed": 42,
+  "results": {
+    "eng": {
+      "zero_shot": {
+        "macro_f1": 0.3447,
+        "parse_rate": 0.98,
+        "mean_llm_ms": 332.9
+      },
+      "rag": {
+        "macro_f1": 0.4424,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 370.3
+      },
+      "rag_minus_zero_shot": 0.0977,
+      "n": 100
+    },
+    "hin": {
+      "zero_shot": {
+        "macro_f1": 0.4566,
+        "parse_rate": 0.89,
+        "mean_llm_ms": 356.5
+      },
+      "rag": {
+        "macro_f1": 0.4237,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 482.9
+      },
+      "rag_minus_zero_shot": -0.0329,
+      "n": 100
+    },
+    "rus": {
+      "zero_shot": {
+        "macro_f1": 0.5942,
+        "parse_rate": 0.95,
+        "mean_llm_ms": 368.0
+      },
+      "rag": {
+        "macro_f1": 0.6485,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 398.4
+      },
+      "rag_minus_zero_shot": 0.0543,
+      "n": 100
+    },
+    "hau": {
+      "zero_shot": {
+        "macro_f1": 0.1311,
+        "parse_rate": 0.98,
+        "mean_llm_ms": 322.7
+      },
+      "rag": {
+        "macro_f1": 0.1977,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 388.0
+      },
+      "rag_minus_zero_shot": 0.0666,
+      "n": 100
+    },
+    "kin": {
+      "zero_shot": {
+        "macro_f1": 0.0716,
+        "parse_rate": 0.99,
+        "mean_llm_ms": 327.2
+      },
+      "rag": {
+        "macro_f1": 0.1196,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 429.7
+      },
+      "rag_minus_zero_shot": 0.048,
+      "n": 100
+    },
+    "sun": {
+      "zero_shot": {
+        "macro_f1": 0.1874,
+        "parse_rate": 0.97,
+        "mean_llm_ms": 347.3
+      },
+      "rag": {
+        "macro_f1": 0.2843,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 382.1
+      },
+      "rag_minus_zero_shot": 0.0969,
+      "n": 100
+    },
+    "yor": {
+      "zero_shot": {
+        "macro_f1": 0.0,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 307.7
+      },
+      "rag": {
+        "macro_f1": 0.1361,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 405.2
+      },
+      "rag_minus_zero_shot": 0.1361,
+      "n": 100
+    },
+    "vmw": {
+      "zero_shot": {
+        "macro_f1": 0.0,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 305.0
+      },
+      "rag": {
+        "macro_f1": 0.1335,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 390.6
+      },
+      "rag_minus_zero_shot": 0.1335,
+      "n": 100
+    },
+    "pcm": {
+      "zero_shot": {
+        "macro_f1": 0.213,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 339.7
+      },
+      "rag": {
+        "macro_f1": 0.3088,
+        "parse_rate": 1.0,
+        "mean_llm_ms": 392.4
+      },
+      "rag_minus_zero_shot": 0.0958,
+      "n": 100
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "labels": [
+    "anger"
+  ],
+  "parsed_ok": true,
+  "raw_output": "{\"emotions\": [\"anger\"]}",
+  "neighbours": [
+    {
+      "rank": 1,
+      "score": 0.7196,
+      "text": "omo e dey vex me",
+      "lang": "pcm",
+      "labels": {
+        "anger": 1
+      }
+    },
+    {
+      "rank": 2,
+      "score": 0.6467,
+      "text": "omo pikin wey you go born go vex for you",
+      "lang": "pcm",
+      "labels": {
+        "disgust": 1,
+        "fear": 1
+      }
+    },
+    {
+      "rank": 3,
+      "score": 0.6379,
+      "text": "omo na as i dey reason am now i con dey code oh",
+      "lang": "pcm",
+      "labels": {
+        "surprise": 1
+      }
+    },
+    {
+      "rank": 4,
+      "score": 0.6276,
+      "text": "omo you don dey old oh",
+      "lang": "pcm",
+      "labels": {
+        "surprise": 1
+      }
+    },
+    {
+      "rank": 5,
+      "score": 0.6188,
+      "text": "i put i come dey vex lol",
+      "lang": "pcm",
+      "labels": {
+        "anger": 1
+      }
+    }
+  ],
+  "retrieval_ms": 701.09,
+  "llm_ms": 922.96,
+  "latency_ms": 1624.19
+}
